@@ -26,3 +26,8 @@ class RPC:
         return self('get_dataset_description', dataset_id=dataset_id)
     def get_dataset_steering(self, dataset_id):
         return self('get_dataset_steering', dataset_id=dataset_id)
+    def get_tasks_by_name(self, task_name):
+        return self('get_tasks_by_name', task_name=task_name)
+    def get_tasks_by_requirements(self, task_reqirements):
+        return self('get_tasks_by_requirements', task_reqirements=task_reqirements)
+
