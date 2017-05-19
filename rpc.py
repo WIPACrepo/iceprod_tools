@@ -30,4 +30,6 @@ class RPC:
         return self('get_tasks_by_name', task_name=task_name)
     def get_tasks_by_requirements(self, task_reqirements):
         return self('get_tasks_by_requirements', task_reqirements=task_reqirements)
+    def get_dataset_completion(self, dataset_id):
+        return self('get_dataset_completion', dataset_id=dataset_id)
 
