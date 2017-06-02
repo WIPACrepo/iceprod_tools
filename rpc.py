@@ -8,6 +8,8 @@ class RPC:
         data = {'jsonrpc':'2.0','method':'public_' + method,'id':self.id}
         if params != None: data['params'] = params
         r = requests.post(self.server_address + '/jsonrpc', json=data)
+        if r.status_code >= 400: 
+            raise Exception('HTTP request error %i' % r.status_code)
         return r.json()['result']
 
     def get_number_of_tasks_in_each_state(self):
