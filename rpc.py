@@ -76,6 +76,7 @@ class RPC:
     def __init__(self, server_address):
         self.id = 0
         self.server_address = server_address
+        self.site_id = ''
     def __call__(self, method, **params):
         self.id += 1
         data = {'jsonrpc':'2.0','method':'public_' + method,'id':self.id}
@@ -107,5 +108,11 @@ class RPC:
         return self('get_tasks_by_requirements', task_reqirements=task_reqirements)
     def get_dataset_completion(self, dataset_id):
         return self('get_dataset_completion', dataset_id=dataset_id)
+    def get_site_id(self):
+        return self('get_site_id')
     def dataset_number(self, dataset_id):
         return GlobalID.localID_ret(dataset_id,type='int')
+    def dataset_id(self, dataset_number):
+        if self.site_id == '':
+            self.site_id = self('get_site_id')
+        return GlobalID.globalID_gen(dataset_number, self.site_id)
