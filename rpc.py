@@ -92,6 +92,8 @@ class RPC:
         return self('get_datasets_by_status', status=status)
     def get_config(self, dataset_id):
         return self('get_config', dataset_id=dataset_id)
+    def get_all_config(self):
+        return self('get_all_config')
     def get_task_walltime(self, task_id):
         return self('get_task_walltime', task_id=task_id)
     def get_task_ids(self, dataset_id):
@@ -108,6 +110,8 @@ class RPC:
         return self('get_tasks_by_requirements', task_reqirements=task_reqirements)
     def get_dataset_completion(self, dataset_id):
         return self('get_dataset_completion', dataset_id=dataset_id)
+    def get_all_dataset_completion(self):
+        return self('get_all_dataset_completion')
     def get_site_id(self):
         return self('get_site_id')
     def dataset_number(self, dataset_id):
