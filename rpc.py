@@ -120,3 +120,5 @@ class RPC:
         if self.site_id == '':
             self.site_id = self('get_site_id')
         return GlobalID.globalID_gen(dataset_number, self.site_id)
+    def get_cpu_gpu_usage(self, dataset_id):
+        return self('get_cpu_gpu_usage', dataset_id=dataset_id)
